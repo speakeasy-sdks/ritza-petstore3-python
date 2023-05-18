@@ -30,11 +30,11 @@ class User:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/user'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'form')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
@@ -60,11 +60,11 @@ class User:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/user'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
@@ -90,11 +90,11 @@ class User:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/user'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'raw')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
@@ -120,11 +120,11 @@ class User:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/user/createWithList'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
@@ -152,11 +152,12 @@ class User:
         base_url = self._server_url
         
         url = utils.generate_url(operations.DeleteUserRequest, base_url, '/user/{username}', request)
-        
+        headers = {}
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
-        http_res = client.request('DELETE', url)
+        http_res = client.request('DELETE', url, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.DeleteUserResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -170,11 +171,12 @@ class User:
         base_url = self._server_url
         
         url = utils.generate_url(operations.GetUserByNameRequest, base_url, '/user/{username}', request)
-        
+        headers = {}
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
-        http_res = client.request('GET', url)
+        http_res = client.request('GET', url, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.GetUserByNameResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -196,12 +198,13 @@ class User:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/user/login'
-        
+        headers = {}
         query_params = utils.get_query_params(operations.LoginUserRequest, request)
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
-        http_res = client.request('GET', url, params=query_params)
+        http_res = client.request('GET', url, params=query_params, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.LoginUserResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -224,11 +227,12 @@ class User:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/user/logout'
-        
+        headers = {}
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
-        http_res = client.request('GET', url)
+        http_res = client.request('GET', url, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.LogoutUserResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -244,11 +248,11 @@ class User:
         base_url = self._server_url
         
         url = utils.generate_url(operations.UpdateUserFormRequest, base_url, '/user/{username}', request)
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "user", 'form')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
@@ -268,11 +272,11 @@ class User:
         base_url = self._server_url
         
         url = utils.generate_url(operations.UpdateUserJSONRequest, base_url, '/user/{username}', request)
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "user", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
@@ -292,11 +296,11 @@ class User:
         base_url = self._server_url
         
         url = utils.generate_url(operations.UpdateUserRawRequest, base_url, '/user/{username}', request)
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request_body", 'raw')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         

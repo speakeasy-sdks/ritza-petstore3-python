@@ -32,13 +32,13 @@ class Pet:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/pet'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'form')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         if data is None and form is None:
             raise Exception('request body is required')
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
@@ -66,13 +66,13 @@ class Pet:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/pet'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         if data is None and form is None:
             raise Exception('request body is required')
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
@@ -100,13 +100,13 @@ class Pet:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/pet'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'raw')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         if data is None and form is None:
             raise Exception('request body is required')
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
@@ -132,8 +132,8 @@ class Pet:
         base_url = self._server_url
         
         url = utils.generate_url(operations.DeletePetRequest, base_url, '/pet/{petId}', request)
-        
         headers = utils.get_headers(request)
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
@@ -153,12 +153,13 @@ class Pet:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/pet/findByStatus'
-        
+        headers = {}
         query_params = utils.get_query_params(operations.FindPetsByStatusRequest, request)
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
-        http_res = client.request('GET', url, params=query_params)
+        http_res = client.request('GET', url, params=query_params, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.FindPetsByStatusResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -182,12 +183,13 @@ class Pet:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/pet/findByTags'
-        
+        headers = {}
         query_params = utils.get_query_params(operations.FindPetsByTagsRequest, request)
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
-        http_res = client.request('GET', url, params=query_params)
+        http_res = client.request('GET', url, params=query_params, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.FindPetsByTagsResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -211,11 +213,12 @@ class Pet:
         base_url = self._server_url
         
         url = utils.generate_url(operations.GetPetByIDRequest, base_url, '/pet/{petId}', request)
-        
+        headers = {}
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
-        http_res = client.request('GET', url)
+        http_res = client.request('GET', url, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.GetPetByIDResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -237,12 +240,13 @@ class Pet:
         base_url = self._server_url
         
         url = utils.generate_url(operations.UpdatePetWithFormRequest, base_url, '/pet/{petId}', request)
-        
+        headers = {}
         query_params = utils.get_query_params(operations.UpdatePetWithFormRequest, request)
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
-        http_res = client.request('POST', url, params=query_params)
+        http_res = client.request('POST', url, params=query_params, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.UpdatePetWithFormResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -258,13 +262,13 @@ class Pet:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/pet'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'form')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         if data is None and form is None:
             raise Exception('request body is required')
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
@@ -292,13 +296,13 @@ class Pet:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/pet'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         if data is None and form is None:
             raise Exception('request body is required')
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
@@ -326,13 +330,13 @@ class Pet:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/pet'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'raw')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         if data is None and form is None:
             raise Exception('request body is required')
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
@@ -358,12 +362,12 @@ class Pet:
         base_url = self._server_url
         
         url = utils.generate_url(operations.UploadFileRequest, base_url, '/pet/{petId}/uploadImage', request)
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request_body", 'raw')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         query_params = utils.get_query_params(operations.UploadFileRequest, request)
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         

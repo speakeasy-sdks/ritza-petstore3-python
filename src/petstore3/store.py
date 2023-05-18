@@ -32,11 +32,12 @@ class Store:
         base_url = self._server_url
         
         url = utils.generate_url(operations.DeleteOrderRequest, base_url, '/store/order/{orderId}', request)
-        
+        headers = {}
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
-        http_res = client.request('DELETE', url)
+        http_res = client.request('DELETE', url, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.DeleteOrderResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -52,11 +53,12 @@ class Store:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/store/inventory'
-        
+        headers = {}
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
         
-        http_res = client.request('GET', url)
+        http_res = client.request('GET', url, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.GetInventoryResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -76,11 +78,12 @@ class Store:
         base_url = self._server_url
         
         url = utils.generate_url(operations.GetOrderByIDRequest, base_url, '/store/order/{orderId}', request)
-        
+        headers = {}
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
-        http_res = client.request('GET', url)
+        http_res = client.request('GET', url, headers=headers)
         content_type = http_res.headers.get('Content-Type')
 
         res = operations.GetOrderByIDResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
@@ -104,11 +107,11 @@ class Store:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/store/order'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'form')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
@@ -134,11 +137,11 @@ class Store:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/store/order'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
@@ -164,11 +167,11 @@ class Store:
         base_url = self._server_url
         
         url = base_url.removesuffix('/') + '/store/order'
-        
         headers = {}
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'raw')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
         
