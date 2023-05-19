@@ -43,7 +43,7 @@ req = shared.Pet(
     photo_urls=[
         'ipsam',
     ],
-    status=shared.PetStatusEnum.SOLD,
+    status=shared.PetStatus.SOLD,
     tags=[
         shared.Tag(
             id=778157,
@@ -95,7 +95,7 @@ req = shared.Pet(
         'qui',
         'impedit',
     ],
-    status=shared.PetStatusEnum.SOLD,
+    status=shared.PetStatus.SOLD,
     tags=[
         shared.Tag(
             id=216550,
@@ -176,7 +176,7 @@ from petstore3.models import operations
 s = petstore3.Petstore3()
 
 req = operations.FindPetsByStatusRequest(
-    status=operations.FindPetsByStatusStatusEnum.PENDING,
+    status=operations.FindPetsByStatusStatus.PENDING,
 )
 
 res = s.pet.find_pets_by_status(req, operations.FindPetsByStatusSecurity(
@@ -288,7 +288,7 @@ req = shared.Pet(
         'explicabo',
         'nobis',
     ],
-    status=shared.PetStatusEnum.AVAILABLE,
+    status=shared.PetStatus.AVAILABLE,
     tags=[
         shared.Tag(
             id=363711,
@@ -336,7 +336,7 @@ req = shared.Pet(
         'molestiae',
         'velit',
     ],
-    status=shared.PetStatusEnum.PENDING,
+    status=shared.PetStatus.PENDING,
     tags=[
         shared.Tag(
             id=338007,

@@ -10,7 +10,7 @@ from marshmallow import fields
 from petstore3 import utils
 from typing import Optional
 
-class OrderStatusEnum(str, Enum):
+class OrderStatus(str, Enum):
     r"""Order Status"""
     PLACED = 'placed'
     APPROVED = 'approved'
@@ -26,6 +26,6 @@ class Order:
     pet_id: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('petId'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'petId' }})
     quantity: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('quantity'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'quantity' }})
     ship_date: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipDate'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse, 'mm_field': fields.DateTime(format='iso'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'shipDate' }})
-    status: Optional[OrderStatusEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'status' }})
+    status: Optional[OrderStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'status' }})
     r"""Order Status"""
     

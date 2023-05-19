@@ -33,6 +33,7 @@ class Store:
         
         url = utils.generate_url(operations.DeleteOrderRequest, base_url, '/store/order/{orderId}', request)
         headers = {}
+        headers['Accept'] = '*/*'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -54,6 +55,7 @@ class Store:
         
         url = base_url.removesuffix('/') + '/store/inventory'
         headers = {}
+        headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = utils.configure_security_client(self._client, security)
@@ -79,6 +81,7 @@ class Store:
         
         url = utils.generate_url(operations.GetOrderByIDRequest, base_url, '/store/order/{orderId}', request)
         headers = {}
+        headers['Accept'] = 'application/json;q=1, application/xml;q=0'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -111,6 +114,7 @@ class Store:
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'form')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -141,6 +145,7 @@ class Store:
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -171,6 +176,7 @@ class Store:
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'raw')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['Accept'] = 'application/json'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client

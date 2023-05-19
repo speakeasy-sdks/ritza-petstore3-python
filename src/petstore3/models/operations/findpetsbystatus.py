@@ -13,7 +13,7 @@ class FindPetsByStatusSecurity:
     
     petstore_auth: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'oauth2', 'field_name': 'Authorization' }})
     
-class FindPetsByStatusStatusEnum(str, Enum):
+class FindPetsByStatusStatus(str, Enum):
     r"""Status values that need to be considered for filter"""
     AVAILABLE = 'available'
     PENDING = 'pending'
@@ -23,7 +23,7 @@ class FindPetsByStatusStatusEnum(str, Enum):
 @dataclasses.dataclass
 class FindPetsByStatusRequest:
     
-    status: Optional[FindPetsByStatusStatusEnum] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'status', 'style': 'form', 'explode': True }})
+    status: Optional[FindPetsByStatusStatus] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'status', 'style': 'form', 'explode': True }})
     r"""Status values that need to be considered for filter"""
     
 

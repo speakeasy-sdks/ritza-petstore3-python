@@ -17,7 +17,7 @@ req = shared.Pet(
         'distinctio',
         'quibusdam',
     ],
-    status=shared.PetStatusEnum.PENDING,
+    status=shared.PetStatus.PENDING,
     tags=[
         shared.Tag(
             id=544883,

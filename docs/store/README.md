@@ -99,7 +99,7 @@ req = shared.Order(
     pet_id=198772,
     quantity=7,
     ship_date=dateutil.parser.isoparse('2022-11-26T13:23:33.410Z'),
-    status=shared.OrderStatusEnum.APPROVED,
+    status=shared.OrderStatus.APPROVED,
 )
 
 res = s.store.place_order_form(req)
@@ -127,7 +127,7 @@ req = shared.Order(
     pet_id=198772,
     quantity=7,
     ship_date=dateutil.parser.isoparse('2021-04-29T07:12:18.684Z'),
-    status=shared.OrderStatusEnum.APPROVED,
+    status=shared.OrderStatus.APPROVED,
 )
 
 res = s.store.place_order_json(req)

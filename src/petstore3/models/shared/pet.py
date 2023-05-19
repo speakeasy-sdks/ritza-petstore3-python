@@ -9,7 +9,7 @@ from enum import Enum
 from petstore3 import utils
 from typing import Optional
 
-class PetStatusEnum(str, Enum):
+class PetStatus(str, Enum):
     r"""pet status in the store"""
     AVAILABLE = 'available'
     PENDING = 'pending'
@@ -25,7 +25,7 @@ class Pet:
     photo_urls: list[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('photoUrls') }, 'form': { 'field_name': 'photoUrls' }})
     category: Optional[shared_category.Category] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('category'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'category', 'json': True }})
     id: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'id' }})
-    status: Optional[PetStatusEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'status' }})
+    status: Optional[PetStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'status' }})
     r"""pet status in the store"""
     tags: Optional[list[shared_tag.Tag]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tags'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'tags', 'json': True }})
     

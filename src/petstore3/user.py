@@ -34,6 +34,7 @@ class User:
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'form')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['Accept'] = 'application/json;q=1, application/xml;q=0'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -64,6 +65,7 @@ class User:
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['Accept'] = 'application/json;q=1, application/xml;q=0'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -94,6 +96,7 @@ class User:
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'raw')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['Accept'] = 'application/json;q=1, application/xml;q=0'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -124,6 +127,7 @@ class User:
         req_content_type, data, form = utils.serialize_request_body(request, "request", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['Accept'] = 'application/json;q=1, application/xml;q=0'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -153,6 +157,7 @@ class User:
         
         url = utils.generate_url(operations.DeleteUserRequest, base_url, '/user/{username}', request)
         headers = {}
+        headers['Accept'] = '*/*'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -172,6 +177,7 @@ class User:
         
         url = utils.generate_url(operations.GetUserByNameRequest, base_url, '/user/{username}', request)
         headers = {}
+        headers['Accept'] = 'application/json;q=1, application/xml;q=0'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -200,6 +206,7 @@ class User:
         url = base_url.removesuffix('/') + '/user/login'
         headers = {}
         query_params = utils.get_query_params(operations.LoginUserRequest, request)
+        headers['Accept'] = 'application/json;q=1, application/xml;q=0'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -228,6 +235,7 @@ class User:
         
         url = base_url.removesuffix('/') + '/user/logout'
         headers = {}
+        headers['Accept'] = '*/*'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -252,6 +260,7 @@ class User:
         req_content_type, data, form = utils.serialize_request_body(request, "user", 'form')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['Accept'] = '*/*'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -276,6 +285,7 @@ class User:
         req_content_type, data, form = utils.serialize_request_body(request, "user", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['Accept'] = '*/*'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client
@@ -300,6 +310,7 @@ class User:
         req_content_type, data, form = utils.serialize_request_body(request, "request_body", 'raw')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
+        headers['Accept'] = '*/*'
         headers['user-agent'] = f'speakeasy-sdk/{self._language} {self._sdk_version} {self._gen_version}'
         
         client = self._client

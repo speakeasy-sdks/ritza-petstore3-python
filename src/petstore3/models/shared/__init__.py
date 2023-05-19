@@ -7,4 +7,4 @@ from .pet import *
 from .tag import *
 from .user import *
 
-__all__ = ["APIResponse","Category","Order","OrderStatusEnum","Pet","PetStatusEnum","Tag","User"]
+__all__ = ["APIResponse","Category","Order","OrderStatus","Pet","PetStatus","Tag","User"]
