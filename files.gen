@@ -2,6 +2,7 @@ src/petstore3/pet.py
 src/petstore3/store.py
 src/petstore3/user.py
 src/petstore3/sdk.py
+.gitignore
 pylintrc
 setup.py
 src/petstore3/__init__.py
