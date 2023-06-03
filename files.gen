@@ -1,3 +1,4 @@
+src/petstore3/sdkconfiguration.py
 src/petstore3/pet.py
 src/petstore3/store.py
 src/petstore3/user.py
